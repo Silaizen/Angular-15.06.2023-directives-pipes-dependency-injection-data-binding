@@ -1,0 +1,46 @@
+<h1>Bill Gates Quotes</h1>
+<img [src]="imageSrc" alt="Bill Gates Portrait">
+<ul>
+  <li *ngFor="let quote of quotes">{{ quote }}</li>
+</ul>
+<p>For more information about Bill Gates, you can visit the following resources:</p>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Bill_Gates" target="_blank">Wikipedia - Bill Gates</a></li>
+  <li><a href="https://www.gatesfoundation.org/" target="_blank">Bill & Melinda Gates Foundation</a></li>
+  <li><a href="https://www.gatesnotes.com/" target="_blank">Gates Notes</a></li>
+  <li><a href="https://twitter.com/billgates" target="_blank">Bill Gates on Twitter</a></li>
+</ul>
+<p>Example usage of pipes:</p>
+<p>Currency: {{ currencyValue | currency }}</p>
+<p>Percentage: {{ percentValue | percent }}</p>
+<div *ngIf="quotes.length > 0">
+  <h2>Quotes:</h2>
+  <ul>
+    <li *ngFor="let quote of quotes">{{ quote }}</li>
+  </ul>
+</div>
+<div [ngSwitch]="quotes.length">
+  <p *ngSwitchCase="0">No quotes available</p>
+  <p *ngSwitchCase="1">1 quote available</p>
+  <p *ngSwitchDefault>{{ quotes.length }} quotes available</p>
+</div>
+<h1>Transport Information</h1>
+
+<button (click)="showCarInfo()">Car</button>
+<button (click)="showPlaneInfo()">Plane</button>
+<button (click)="showShipInfo()">Ship</button>
+
+<div *ngIf="selectedTransport === 'car'">
+  <h2>Car Information</h2>
+  <p>Largest car: {{ largestCar | uppercase }}</p>
+</div>
+
+<div *ngIf="selectedTransport === 'plane'">
+  <h2>Plane Information</h2>
+  <p>Largest plane: {{ largestPlane | uppercase }}</p>
+</div>
+
+<div *ngIf="selectedTransport === 'ship'">
+  <h2>Ship Information</h2>
+  <p>Largest ship: {{ largestShip | uppercase }}</p>
+</div>
